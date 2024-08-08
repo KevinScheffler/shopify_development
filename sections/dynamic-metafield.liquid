@@ -1,0 +1,26 @@
+<h2>Dynamic Metafield</h2>
+
+{% if product.metafields.custom[section.settings.metafield_key].type == "rich_text_field" %}
+  {{ product.metafields.custom[section.settings.metafield_key] |  metafield_tag }}
+{% else %}
+  <p>{{ product.metafields.custom[section.settings.metafield_key] }}</p>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Dynamic Metafield",
+    "settings": [
+      {
+        "id": "metafield_key",
+        "label": "Metafield Key",
+        "type": "text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Dynamic Metafield"
+      }
+    ]
+  }
+{% endschema %}

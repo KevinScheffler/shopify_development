@@ -128,6 +128,8 @@
 
   {{ 'sections-tutorial.css' |  asset_url |  stylesheet_tag }}
 
+  <script src="{{ 'section-tutorial.js' |  asset_url | }}" async></script>
+
   <style>
     #shopify-section-{{ section.id }} {
       background: {{ section.settings.color_background_setting }}
