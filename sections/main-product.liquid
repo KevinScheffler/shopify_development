@@ -1,3 +1,17 @@
+<p>{{ product.metafields.custom.mixed_reference_metafield.value.system.type }}</p>
+{% if product.metafields.custom.mixed_reference_metafield.value.system.type == "craftsperson" %}
+  <p>{{ product.metafields.custom.mixed_reference_metafield.value.name }}</p>
+{%  elsif product.metafields.custom.mixed_reference_metafield.value.system.type == "mixed_ref_example" %}
+  <p>{{ product.metafields.custom.mixed_reference_metafield.value.title }}</p>
+{% endif %}
+
+{% for craftsperson in product.metafields.custom.craftspeople.value %}
+  <p>{{ craftsperson.name }}</p>
+{% endfor %}
+
+
+
+
 {% if product.metafields.custom.example_metafield %}
   <h2>Example Metafield</h2>
   <p>{{ product.metafields.custom.example_metafield }}</p>
@@ -752,6 +766,7 @@
       {{ product | structured_data }}
     </script>
   </div>
+  {% render 'product-craftsperson', { product: product} %}
 </product-info>
 
 {% schema %}
